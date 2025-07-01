@@ -1,4 +1,5 @@
-// Create score variables
+// Create score and play again variables
+let playAgain = "y";
 let humanScore = 0;
 let computerScore = 0;
 
@@ -38,5 +39,33 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-playRound('rock', 'scissors');
-    
+function displayScore() {
+  console.log("Current score:");
+  console.log(`Computer: ${computerScore}`);
+  console.log(`You: ${humanScore}`);
+}
+
+function playGame() {
+  console.log("Time to play Rock Paper Scissors! Best of 5!");
+
+  for (let i = 0; i < 5; i++) {
+    let computerChoice = getComputerChoice();
+    let humanChoice = getHumanChoice();
+    playRound(humanChoice, computerChoice);
+    displayScore();
+  }
+
+  if (humanScore < computerScore) {
+    console.log("You lost the game! Better luck next time!");
+  } else if (computerScore < humanScore) {
+    console.log("You've won the game! Congrats!");
+  } else {
+    console.log("Looks like the whole game is a tie!");
+  }
+}
+
+while (playAgain === "y") {
+  playGame();
+
+  playAgain = prompt('Enter "y" if you want to play again: ');
+}
