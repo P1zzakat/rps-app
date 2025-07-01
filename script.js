@@ -7,11 +7,11 @@ function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
   // Assign and return computer choice
   if (randomNumber === 0) {
-    return "Rock";
+    return "rock";
   } else if (randomNumber === 1) {
-    return "Paper";
+    return "paper";
   } else {
-    return "Scissors";
+    return "scissors";
   }
 }
 
@@ -21,3 +21,20 @@ function getHumanChoice() {
   // Return curated user input
   return userInput.toLowerCase();
 }
+
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    console.log("It's a draw");
+  } else if (
+    (humanChoice === "rock" && computerChoice === "paper") ||
+    (humanChoice === "paper" && computerChoice === "scissors") ||
+    (humanChoice === "scissors" && computerChoice === "rock")
+  ) {
+    console.log("You lose!");
+    computerChoice++;
+  } else {
+    console.log("You win");
+    humanChoice++;
+  }
+}
+
