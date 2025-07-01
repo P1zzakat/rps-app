@@ -1,3 +1,7 @@
+// Create score variables
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   // Get a random value between 0, 1, 2
   const randomNumber = Math.floor(Math.random() * 3);
