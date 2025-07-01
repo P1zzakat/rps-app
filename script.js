@@ -1,10 +1,19 @@
 function getComputerChoice() {
-   const randomNumber = Math.floor(Math.random()*3); // Get an random value between 0, 1, 2
-   if (randomNumber === 0) {
+  // Get a random value between 0, 1, 2
+  const randomNumber = Math.floor(Math.random() * 3);
+  // Assign and return computer choice
+  if (randomNumber === 0) {
     return "Rock";
-   } else if (randomNumber === 1) {
+  } else if (randomNumber === 1) {
     return "Paper";
-   } else {
+  } else {
     return "Scissors";
-   }
+  }
+}
+
+function getHumanChoice() {
+  // Get input from user
+  const userInput = prompt("Choose your character! (Scissors/Paper/Rock) : ");
+  // Return curated user input
+  return userInput.toLowerCase();
 }
