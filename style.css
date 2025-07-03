@@ -52,12 +52,18 @@ h1 {
 
 .container__status {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    gap: 0.3rem;
 }
 
-.container__status p {
+.conatiner__status h3 {
     font-size: 1.5rem;
+}
+.container__status p {
+    font-size: 1.1rem;
 }
 
 .container__match-buttons {

@@ -1,3 +1,9 @@
+// Create button and element references for later use
+const startButton = document.querySelector('.button-start');
+const restartButton = document.querySelector('.button-restart');
+const statusPara = document.querySelector('.container__status p');
+const humanScoreStatus = document.querySelector('.container__status>p>span.human');
+const computerScoreStatus = document.querySelector('.container__status>p>span.computer');
 // Create score and play again variables
 let playAgain = "y";
 let humanScore = 0;
@@ -18,7 +24,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     // Get input from user
-    const userInput = prompt("Choose your character! (Scissors/Paper/Rock) : ");
+    const userInput = 'scissors';
     // Return curated user input
     return userInput.toLowerCase();
 }
@@ -64,8 +70,4 @@ function playGame() {
     }
 }
 
-while (playAgain === "y") {
-    playGame();
-
-    playAgain = prompt('Enter "y" if you want to play again: ');
-}
+startButton.addEventListener('click', playGame);
