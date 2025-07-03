@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rps-app</title>
-</head>
-<body>
-   <script src="script.js"></script> 
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>rps-app</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Rock Paper Scissors</h1>
+        <div class="container">
+            <div class="container__choices">
+                <div class="container__human-choice">
+                    <p class="human-choice-figure"></p>
+                    <p class="human-choice-text"></p>
+                </div>
+                <div class="container__computer-choice">
+                    <p class="human-choice-figure"></p>
+                    <p class="computer-choice-text"></p>
+                </div>
+            </div>
+            <div class="container__match-buttons">
+                <button class="container__match-button button-rock">Rock</button>
+                <button class="container__match-button button-paper">Paper</button>
+                <button class="container__match-button button-scissors">Scissors</button>
+            </div>
+            <div class="container__control-buttons">
+                <button class="container__control-button button-restart" disabled>
+                    Restart
+                </button>
+                <button class="container__control-button button-start">
+                    Start Game
+                </button>
+            </div>
+            <div class="container__score">
+                <h2>Score will be displayed here!</h2>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
