@@ -1,13 +1,12 @@
 // Create button and element references for later use
 const startButton = document.querySelector('.button-start');
 const restartButton = document.querySelector('.button-restart');
-const statusPara = document.querySelector('.container__status p');
-const humanScoreStatus = document.querySelector('.container__status>p>span.human');
-const computerScoreStatus = document.querySelector('.container__status>p>span.computer');
+const score = document.querySelector('.container__status p');
 // Create score and play again variables
 let playAgain = "y";
 let humanScore = 0;
 let computerScore = 0;
+let validChoice = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice() {
     // Get a random value between 0, 1, 2
@@ -24,35 +23,37 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     // Get input from user
-    const userInput = 'scissors';
+    let userInput;
+
+    while (!validChoice.includes(userInput)) {
+        userInput = prompt('Choose your character');
+    }
     // Return curated user input
-    return userInput.toLowerCase();
+    return userInput;
 }
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        console.log("It's a draw");
+        alert("It's a draw");
     } else if (
         (humanChoice === "rock" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "scissors") ||
         (humanChoice === "scissors" && computerChoice === "rock")
     ) {
-        console.log("You lose!");
+        alert("You lost this round");
         computerScore++;
     } else {
-        console.log("You win");
+        alert("You won this round");
         humanScore++;
     }
 }
 
 function displayScore() {
-    console.log("Current score:");
-    console.log(`Computer: ${computerScore}`);
-    console.log(`You: ${humanScore}`);
+    console.log('what the fuc');
+    score.innerText = `You: ${humanScore}, Computer: ${computerScore}`;
 }
 
 function playGame() {
-    console.log("Time to play Rock Paper Scissors! Best of 5!");
 
     for (let i = 0; i < 5; i++) {
         let computerChoice = getComputerChoice();
@@ -62,12 +63,14 @@ function playGame() {
     }
 
     if (humanScore < computerScore) {
-        console.log("You lost the game! Better luck next time!");
+        alert("You lost the game! Better luck next time!");
     } else if (computerScore < humanScore) {
-        console.log("You've won the game! Congrats!");
+        alert("You've won the game! Congrats!");
     } else {
-        console.log("Looks like the whole game is a tie!");
+        alert("Looks like the whole game is a tie!");
     }
 }
 
+displayScore();
 startButton.addEventListener('click', playGame);
+
